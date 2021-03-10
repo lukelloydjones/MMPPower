@@ -1,0 +1,34 @@
+
+Call:
+lm(formula = log(ANALYTE_MN_DPTH) ~ Date_2 * SHORT_NAME + Date_2 * 
+    PROJECT + Date_2 + SEAS_C1 + SEAS_C2, data = nrm.analyte.pst.2015)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.18088 -0.51405 -0.06917  0.45172  1.95065 
+
+Coefficients:
+                        Estimate Std. Error t value Pr(>|t|)    
+(Intercept)            1.282e+00  2.471e-01   5.190 5.30e-07 ***
+Date_2                -8.726e-05  2.663e-04  -0.328 0.743489    
+SHORT_NAMETUL2        -1.740e+00  3.637e-01  -4.784 3.41e-06 ***
+SHORT_NAMETUL3        -1.016e+00  3.507e-01  -2.898 0.004188 ** 
+SHORT_NAMETUL5        -1.412e+00  3.631e-01  -3.888 0.000139 ***
+SHORT_NAMETUL6        -1.113e+00  3.631e-01  -3.066 0.002480 ** 
+SHORT_NAMETUL8        -1.284e+00  3.631e-01  -3.538 0.000505 ***
+PROJECTMMP-JCU         2.382e+00  2.496e-01   9.542  < 2e-16 ***
+SEAS_C1               -4.618e-01  7.712e-02  -5.988 1.02e-08 ***
+SEAS_C2               -1.091e-02  7.212e-02  -0.151 0.879921    
+Date_2:SHORT_NAMETUL2  6.539e-06  3.846e-04   0.017 0.986453    
+Date_2:SHORT_NAMETUL3  2.683e-04  3.744e-04   0.717 0.474416    
+Date_2:SHORT_NAMETUL5  5.722e-04  3.846e-04   1.488 0.138493    
+Date_2:SHORT_NAMETUL6  4.943e-04  3.859e-04   1.281 0.201815    
+Date_2:SHORT_NAMETUL8  5.531e-04  3.844e-04   1.439 0.151828    
+Date_2:PROJECTMMP-JCU -1.584e-03  2.599e-04  -6.095 5.83e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.7301 on 193 degrees of freedom
+Multiple R-squared:  0.5648,	Adjusted R-squared:  0.5309 
+F-statistic:  16.7 on 15 and 193 DF,  p-value: < 2.2e-16
+

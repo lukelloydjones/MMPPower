@@ -1,0 +1,24 @@
+
+Call:
+lm(formula = log(ANALYTE_MN_DPTH) ~ SHORT_NAME + Date_2 + SEAS_C1 + 
+    SEAS_C2, data = nrm.analyte.pre.2015.st3)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.08083 -0.52765  0.01722  0.39104  1.36865 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    -2.380e+00  2.618e-01  -9.089 1.67e-10 ***
+SHORT_NAMEWHI1 -5.944e-01  2.699e-01  -2.202   0.0347 *  
+SHORT_NAMEWHI4 -1.217e-01  2.699e-01  -0.451   0.6550    
+Date_2          8.108e-05  2.446e-04   0.331   0.7424    
+SEAS_C1         1.030e-01  1.749e-01   0.589   0.5598    
+SEAS_C2         4.286e-01  1.593e-01   2.691   0.0111 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.6881 on 33 degrees of freedom
+Multiple R-squared:  0.3197,	Adjusted R-squared:  0.2167 
+F-statistic: 3.102 on 5 and 33 DF,  p-value: 0.02103
+

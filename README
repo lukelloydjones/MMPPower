@@ -1,0 +1,106 @@
+# =======================================================
+# README for code associated with statistical power 
+# analysis of trends in the  Great Barrier Reef Marine 
+# Monitoring Program's (GBR MMP) water quality
+# Author: Luke Lloyd-Jones
+# Date started: 10/03/2021
+# Date updated: 10/03/2021
+# =======================================================
+
+
+This code accompanies a manuscript that examines data 
+from the GBR MMP inshore water quality program (MMP WQ) 
+and assesses the impact that the sampling re-design had 
+on the power to detect trends in six priority water 
+quality analytes, which is a primary objective of the 
+MMP WQ. 
+
+Below we detail the contents of this repository.
+
+/core_analytical
+   Contains the three main scripts used to perform the 
+   Bootstrap resampling power analysis.
+
+   analysis_phase_3_log_linear_hpc_parts.R
+     - An R script that can be used with the Rscript
+       binary and takes trailing arguments for use with
+       HPC systems. The script requires the 
+       powerBoot functions that are sourced from 
+       power_boot_functions.R. 
+
+       The script performs the pre-2015 versis post-2015
+       analysis, which works through 24 combinations
+       of analyte and Natural Resource Management (NRM) 
+       areas.
+
+       Results generated from this code can be seen in
+       plotting/results/results_hpc_loglm and are 
+       divided by NRM and then by analyte. Results 
+       include for each combination diagnostic figures
+       model fits in .Rdata format and the power
+       sets for the 1000 replicates.
+
+  sites_vs_sampling_phase_3_hpc.R.R
+    - An R script that can be used with the Rscript
+      binary and takes trailing arguments for use with
+      HPC systems. The script requires the 
+      powerBoot functions that are sourced from 
+      power_boot_functions.R. 
+
+      The script performs the sites versus samples
+      analysis, which works through 20 combinations
+      of analyte and Natural Resource Management (NRM) 
+      areas.
+
+      Results generated from this code can be seen in
+      plotting/results/sites_vs_samples and are 
+      divided by NRM and then by analyte. Results 
+      include for each combination diagnostic figures
+      model fits in .Rdata format and the power
+      sets for the 1000 replicates.
+  
+  power_boot_functions.R
+    - Core functions of the Bootstrap power analysis. 
+      There are three functions 
+      1. powerBoot2 - written for the individual site scale  
+      2. powerBoot2Regional - written for the regional 
+                              analysis 
+      3. powerBoot2Regional2 - written for the regional 
+                              analysis but resample 
+                              the residuals within site
+
+      Each function takes inputs 
+        - fit   - fitted linear model from lm
+        - nSim  - number of Bootstrap resamples
+        - delta - fractional year on year change
+        - trend.nm - name of linear trend model component 
+        - mod.res - logical for whether the modified residuals
+                    should be used. Default is true.
+
+      Outputs
+       - A set of pvals evaluating the significance of the
+         two sided test for the linear trends coefficient for 
+         the  nSim Bootstrap replicates
+
+/plotting
+  - Code to generate plots from results for main text
+    and some of the supplemental material. 
+
+    crayon_plots_all.R
+      - This Rscript generates power curves from the
+        bootstrap analysis results/ for both the
+        pre-v-post 2015 analyses and the sites v samples
+        analysis. Generates supplemental figures 3 and 10
+
+    power_pre_post_plots.R
+       - Generates Figure 3 of the main text - pre v post
+         - from the results/results_hpc_loglm results set
+
+    power_sts_vs_samps.R
+      - Generates Figure 4 of the main text -
+        sites v samples - from the
+        results/sites_vs_samples results set
+
+
+
+
